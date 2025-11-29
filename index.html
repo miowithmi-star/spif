@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Университетское объявление — Лекция ко Дню СПИДа</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    font-family: system-ui, sans-serif;
+    background: #f4f4f7;
+    margin: 0;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .board {
+    background: white;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0px 12px 30px rgba(0,0,0,0.15);
+    border: 1px solid #dedee7;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #ffe8ec;
+    color: #b3122e;
+    font-size: 13px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+  }
+
+  .divider {
+    height: 1px;
+    width: 100%;
+    margin: 24px 0;
+    background: linear-gradient(to right, transparent, #ccc, transparent);
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 10px;
+  }
+
+  .gallery img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    object-fit: cover;
+  }
+
+  .placeholder {
+    font-style: italic;
+    color: #777;
+  }
+
+  @media(max-width: 600px) {
+    .board {
+      padding: 20px;
+      border-radius: 12px;
+    }
+    h1 {
+      font-size: 22px;
+    }
+  }
+</style>
+</head>
+
+<body>
+<main class="board">
+
+  <div class="badge">Объявление</div>
+
+  <h1>Лекция, посвящённая Всемирному дню борьбы со СПИДом</h1>
+
+  <p style="font-size:15px; line-height:1.6;">
+    Мероприятие было проведено в стенах университета при участии
+    к.м.н. <b>Кулжабаевой Миргуль Султангазиевны</b>, а также приглашённых гостей:
+    <span class="placeholder">ФИО гостя 1</span>,
+    <span class="placeholder">ФИО гостя 2</span>,
+    <span class="placeholder">ФИО гостя 3</span>.
+  </p>
+
+  <div class="divider"></div>
+
+  <h2 style="font-size:20px; margin-bottom:12px;">Фотоотчёт</h2>
+
+  <div class="gallery">
+
+    <!-- Все твои фото уже встроены (GitHub сам подгрузит) -->
+
+    <img src="IMG_1.jpg">
+    <img src="IMG_2.jpg">
+    <img src="IMG_3.jpg">
+    <img src="IMG_4.jpg">
+    <img src="IMG_5.jpg">
+    <img src="IMG_6.jpg">
+    <img src="IMG_7.jpg">
+    <img src="IMG_8.jpg">
+    <img src="IMG_9.jpg">
+    <img src="IMG_10.jpg">
+    <img src="IMG_11.jpg">
+
+  </div>
+
+</main>
+</body>
+</html>
