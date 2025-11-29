@@ -1,235 +1,202 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Университетское объявление — Лекция ко Дню СПИДа</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Лекция ко Всемирному дню борьбы со СПИДом</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Новый эстетичный шрифт -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
-  body {
-    font-family: 'Inter', sans-serif;
-    background: #f4f4f7;
-    margin: 0;
-    padding: 24px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .board {
-    background: white;
-    max-width: 900px;
-    width: 100%;
-    border-radius: 20px;
-    padding: 36px;
-    box-shadow: 0px 16px 40px rgba(0,0,0,0.1);
-    border: 1px solid #e5e5ef;
-  }
-
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    border-radius: 999px;
-    background: #ffe6ea;
-    color: #b3122e;
-    font-size: 13px;
-    margin-bottom: 14px;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  /* Красная лента */
-  .ribbon {
-    width: 14px;
-    height: 22px;
-    background: #cc0a26;
-    border-radius: 4px 4px 0 0;
-    position: relative;
-    display: inline-block;
-  }
-  .ribbon::after {
-    content: "";
-    position: absolute;
-    width: 14px;
-    height: 22px;
-    background: #cc0a26;
-    left: 8px;
-    top: 0;
-    border-radius: 4px 4px 0 0;
-    transform: rotate(45deg);
-  }
-  .ribbon::before {
-    content: "";
-    position: absolute;
-    width: 14px;
-    height: 22px;
-    background: #cc0a26;
-    left: -8px;
-    top: 0;
-    border-radius: 4px 4px 0 0;
-    transform: rotate(-45deg);
-  }
-
-  h1 {
-    margin: 0 0 10px;
-    font-size: 30px;
-    font-weight: 600;
-  }
-
-  .divider {
-    height: 1px;
-    width: 100%;
-    margin: 28px 0;
-    background: linear-gradient(to right, transparent, #d3d3d3, transparent);
-  }
-
-  /* Галерея — чистая, без рамок */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 14px;
-    margin-top: 10px;
-  }
-
-  .gallery img {
-    width: 100%;
-    border-radius: 14px;
-    object-fit: cover;
-    border: none;
-    box-shadow: none;
-    transition: transform 0.25s ease;
-  }
-
-  .gallery img:hover {
-    transform: scale(1.02);
-  }
-
-  .placeholder {
-    font-style: italic;
-    color: #777;
-  }
-
-  @media(max-width: 600px) {
-    .board {
-      padding: 22px;
-      border-radius: 14px;
+  <style>
+    :root {
+      --text: #222;
+      --text-light: #555;
+      --border: #e3e3e3;
+      --max-width: 880px;
+      --animation-time: 0.25s;
     }
+
+    body {
+      font-family: "Inter", sans-serif;
+      margin: 0;
+      padding: 32px 16px;
+      display: flex;
+      justify-content: center;
+      background: #fff;
+      color: var(--text);
+      opacity: 0;
+      animation: fade-in 0.5s ease forwards;
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    main {
+      width: 100%;
+      max-width: var(--max-width);
+    }
+
+    h1, h2 {
+      transition: color var(--animation-time) ease;
+    }
+
+    h1:hover, h2:hover {
+      color: #d31639;
+    }
+
     h1 {
-      font-size: 24px;
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 16px;
     }
-  }
-</style>
+
+    h2 {
+      font-size: 22px;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.75;
+      margin: 0 0 16px;
+      color: var(--text-light);
+      opacity: 0;
+      animation: text-fade 0.6s ease forwards;
+    }
+
+    @keyframes text-fade {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0;
+      opacity: 0;
+      animation: fade-divider 0.5s ease forwards;
+    }
+
+    @keyframes fade-divider {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .gallery {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 16px;
+      opacity: 0;
+      animation: fade-in 0.7s ease forwards;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+      filter: brightness(0.92);
+    }
+
+    .placeholder {
+      font-style: italic;
+      color: #999;
+    }
+  </style>
 </head>
 
 <body>
-<main class="board">
+  <main>
 
-  <div class="badge">
-    <div class="ribbon"></div>
-    Объявление
-  </div>
+    <h1>Лекция, посвящённая Всемирному дню борьбы со СПИДом</h1>
 
-  <h1>Лекция, посвящённая Всемирному дню борьбы со СПИДом</h1>
+    <p>
+      В университете состоялась лекция с участием
+      <b>Кулжабаевой Миргуль Султангазиевны</b> и приглашённых гостей:
+      <span class="placeholder">ФИО гостя 1</span>,
+      <span class="placeholder">ФИО гостя 2</span>,
+      <span class="placeholder">ФИО гостя 3</span>.
+    </p>
 
-  <p style="font-size:15px; line-height:1.7;">
-    Мероприятие было проведено в стенах университета при участии
-    <b>Кулжабаевой Миргуль Султангазиевны</b>, а также приглашённых гостей:
-    <span class="placeholder">ФИО гостя 1</span>,
-    <span class="placeholder">ФИО гостя 2</span>,
-    <span class="placeholder">ФИО гостя 3</span>.
-  </p>
+    <div class="divider"></div>
 
-  <div class="divider"></div>
+    <h2>Всемирный день борьбы со СПИДом</h2>
 
-  <h2 style="font-size:22px; margin-bottom:12px;">Всемирный день борьбы со СПИДом</h2>
+    <p>
+      Всемирный день борьбы со СПИДом, ежегодно отмечаемый 1 декабря, является одним из центральных
+      событий международной политики в области здравоохранения. Его цель — повышение осведомлённости
+      населения о ВИЧ-инфекции, совершенствование профилактики, укрепление систем эпиднадзора и
+      поддержка людей, живущих с ВИЧ.
+    </p>
 
-  <p style="font-size:15px; line-height:1.75; text-align:justify;">
-    Всемирный день борьбы со СПИДом, ежегодно отмечаемый 1 декабря, является одним из ключевых
-    международных событий в сфере общественного здравоохранения. Он направлен на объединение усилий
-    государств, медицинского сообщества, образовательных учреждений, общественных организаций и
-    международных структур в противодействии ВИЧ-инфекции, укреплении профилактики и поддержке людей,
-    живущих с ВИЧ. Эта дата служит напоминанием о том, что ВИЧ остаётся одной из наиболее серьёзных
-    угроз здоровью населения и требует устойчивых, научно обоснованных и системных решений.
-    <br><br>
+    <p>
+      Дата учреждена в 1988 году по инициативе ВОЗ и UNAIDS. За последние десятилетия мировое
+      сообщество добилось значительного прогресса благодаря внедрению антиретровирусной терапии,
+      развитию лабораторной диагностики, созданию механизмов мониторинга и улучшению моделей
+      сопровождения пациентов.
+    </p>
 
-    Всемирный день борьбы со СПИДом был официально учреждён в 1988 году по инициативе Всемирной
-    организации здравоохранения и Программы ООН по ВИЧ/СПИДу (UNAIDS). За прошедшие десятилетия глобальное
-    сообщество достигло значительного прогресса: высокоэффективная антиретровирусная терапия,
-    современные методы диагностики, развитие программ профилактики и комплексные модели сопровождения
-    пациентов позволили существенно снизить смертность и улучшить качество жизни людей, живущих с ВИЧ.
-    <br><br>
+    <p>
+      Современная глобальная стратегия опирается на цели UNAIDS «95–95–95»:<br>
+      • 95% людей, живущих с ВИЧ, должны знать свой статус;<br>
+      • 95% диагностированных — получать терапию;<br>
+      • 95% пациентов на терапии — иметь неопределяемую вирусную нагрузку.
+    </p>
 
-    Современная мировая стратегия основывается на достижении глобальных целей UNAIDS «95–95–95»:
-    <ul style="line-height:1.7;">
-      <li>95% людей, живущих с ВИЧ, должны знать о своём ВИЧ-статусе;</li>
-      <li>95% диагностированных — получать антиретровирусную терапию;</li>
-      <li>95% пациентов на терапии — достигнуть неопределяемой вирусной нагрузки.</li>
-    </ul>
+    <p>
+      Достижение этих целей позволяет замедлить распространение ВИЧ, снизить смертность и обеспечить
+      пациентам высокое качество жизни. Неопределяемая вирусная нагрузка исключает передачу инфекции
+      половым путём (принцип «U = U»).
+    </p>
 
-    Эти показатели являются критически важными для прекращения эпидемии СПИДа как угрозы
-    общественному здоровью к 2030 году. Достижение неопределяемой вирусной нагрузки не только
-    способствует сохранению здоровья пациента, но и делает передачу вируса половым путём практически
-    невозможной (принцип «U = U» — Undetectable = Untransmittable).
-    <br><br>
+    <p>
+      Одним из самых серьёзных препятствий остаётся стигматизация. Недостаток знаний, страх и давление
+      общества часто становятся причиной позднего обращения, отказа от диагностики и нарушения прав
+      пациентов. Образовательные мероприятия — лекции, семинары, встречи со специалистами — являются
+      важнейшим инструментом борьбы с этим.
+    </p>
 
-    Одним из наиболее значимых вызовов остаётся стигматизация. Социальная стигма, страх и недостаток
-    информированности становятся причиной позднего обращения, отказа от тестирования и нарушения прав
-    людей, живущих с ВИЧ. Борьба со стигмой является неотъемлемой частью национальных и международных
-    программ. Важную роль в этом играет просветительская деятельность — лекции, семинары, встречи со
-    специалистами, направленные на развитие медицинской грамотности и формирование толерантного отношения
-    в обществе.
-    <br><br>
+    <p>
+      В ходе лекции были рассмотрены современные подходы к профилактике ВИЧ, методы ранней диагностики,
+      механизмы эпиднадзора, клинические рекомендации и стратегические направления развития программ.
+      Особое внимание уделено роли молодых специалистов.
+    </p>
 
-    Современная профилактика ВИЧ включает комплекс доказательных мер: регулярное добровольное
-    тестирование, применение барьерных методов защиты, доконтактную (PrEP) и постконтактную (PEP)
-    профилактику, обеспечение доступности антиретровирусной терапии, отказ от стигматизирующих практик
-    и укрепление служб консультирования. Важнейшим направлением является работа с молодежью — одной из
-    наиболее социально активных и уязвимых групп.
-    <br><br>
+    <div class="divider"></div>
 
-    Государственная система здравоохранения уделяет особое внимание справедливому доступу к медицинской
-    помощи: развитию лабораторной службы, обеспечению лекарственными препаратами, внедрению современных
-    методов наблюдения, повышению квалификации медицинских работников и совершенствованию нормативной
-    базы. Эти меры направлены на снижение уровня заболеваемости, улучшение качества жизни пациентов и
-    выполнение международных обязательств.
-    <br><br>
+    <h2>Фотоотчёт</h2>
 
-    Проведённая лекция в университете стала важной частью информационно-просветительской работы.
-    Студентам были представлены современные данные о распространённости ВИЧ-инфекции, механизмах её
-    передачи, международных стратегиях по борьбе с эпидемией, клинических рекомендациях и принципах
-    антиретровирусной терапии. Лекция способствовала формированию у будущих специалистов
-    компетентного, научно обоснованного и социально ответственного взгляда на проблему ВИЧ.
-    <br><br>
+    <div class="gallery">
+      <img src="IMG-20251128-WA0016.jpg" alt="">
+      <img src="IMG-20251128-WA0019.jpg" alt="">
+      <img src="IMG-20251128-WA0020.jpg" alt="">
+      <img src="IMG-20251128-WA0023.jpg" alt="">
+      <img src="IMG-20251128-WA0024.jpg" alt="">
+      <img src="IMG-20251128-WA0025.jpg" alt="">
+      <img src="IMG-20251128-WA0028.jpg" alt="">
+      <img src="IMG-20251128-WA0030.jpg" alt="">
+      <img src="IMG-20251128-WA0032.jpg" alt="">
+      <img src="IMG-20251128-WA0033.jpg" alt="">
+      <img src="IMG-20251128-WA0035.jpg" alt="">
+      <img src="IMG-20251128-WA0036.jpg" alt="">
+    </div>
 
-    Подобные мероприятия играют значимую роль в укреплении медицинской грамотности, профилактике
-    заболеваний, снижении стигматизации и развитии культуры ответственного отношения к здоровью.
-    Информирование и активное участие молодёжи остаются ключевыми факторами в достижении целей борьбы
-    с ВИЧ/СПИДом на национальном и международном уровнях.
-  </p>
-
-  <div class="divider"></div>
-
-  <h2 style="font-size:20px; margin-bottom:12px;">Фотоотчёт</h2>
-
-  <div class="gallery">
-    <img src="IMG-20251128-WA0016.jpg">
-    <img src="IMG-20251128-WA0019.jpg">
-    <img src="IMG-20251128-WA0020.jpg">
-    <img src="IMG-20251128-WA0023.jpg">
-    <img src="IMG-20251128-WA0024.jpg">
-    <img src="IMG-20251128-WA0025.jpg">
-    <img src="IMG-20251128-WA0028.jpg">
-    <img src="IMG-20251128-WA0030.jpg">
-    <img src="IMG-20251128-WA0032.jpg">
-    <img src="IMG-20251128-WA0033.jpg">
-    <img src="IMG-20251128-WA0035.jpg">
-    <img src="IMG-20251128-WA0036.jpg">
-  </div>
-
-</main>
+  </main>
 </body>
 </html>
