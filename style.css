@@ -1,68 +1,164 @@
-/* Шрифт */
+/* ===== BASE ===== */
 body {
     margin: 0;
-    padding: 24px;
-    background: white;
+    padding: 0;
+    background: #faf7f4;
     font-family: 'TT Neoris Trial Light', sans-serif;
-    color: #1d1d1d;
+    color: #2b2b2b;
+}
+
+/* Fade animation */
+.fade {
+    animation: fadeIn 0.9s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== HEADER ===== */
+.header {
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid #e7e7e7;
+    position: sticky;
+    top: 0;
+    z-index: 8;
+}
+
+.header-inner {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 14px 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Контейнер */
-.container {
-    max-width: 880px;
-    width: 100%;
+.header-title {
+    font-family: 'TT Neoris Trial Medium';
+    font-size: 20px;
 }
 
-/* Сердце */
-.heart {
-    font-size: 40px;
-    color: #d90429;
-    opacity: 0.85;
-    margin-bottom: 10px;
-}
-
-/* Заголовок */
-h1 {
-    font-family: 'TT Neoris Trial Medium', sans-serif;
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-/* Подзаголовок */
-h2 {
-    font-family: 'TT Neoris Trial Medium', sans-serif;
-    font-size: 24px;
-    margin-top: 40px;
-}
-
-/* Текст */
-p {
-    font-size: 18px;
-    line-height: 1.75;
-    margin-bottom: 16px;
+.nav a {
+    margin-left: 18px;
+    text-decoration: none;
     color: #444;
+    font-size: 15px;
+    transition: 0.2s;
+}
+.nav a:hover {
+    color: #d90429;
+}
+
+
+
+
+
+/* ===== WRAPPER ===== */
+.wrap {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 32px 22px 80px;
+}
+
+
+
+/* ===== INTRO BLOCK ===== */
+h1 {
+    font-family: 'TT Neoris Trial Medium';
+    font-size: 38px;
+    margin-bottom: 22px;
+    line-height: 1.22;
 }
 
 .lead {
-    font-size: 19px;
-    color: #333;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #555;
 }
 
-/* Декоративная линия */
+.fact-box {
+    margin-top: 22px;
+    background: #fff;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border-left: 5px solid #d90429;
+    font-size: 17px;
+    line-height: 1.6;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+
+
+/* ===== TEXT BLOCK ===== */
+h2 {
+    font-family: 'TT Neoris Trial Medium';
+    font-size: 26px;
+    margin-bottom: 16px;
+}
+
+.text p {
+    font-size: 18px;
+    line-height: 1.75;
+    margin-bottom: 18px;
+    text-align: justify;
+}
+
+.text ul {
+    margin-left: 18px;
+    line-height: 1.7;
+}
+
+
+
+/* Quote */
+blockquote {
+    margin: 26px 0;
+    padding: 16px 20px;
+    background: #fff;
+    border-left: 5px solid #d90429;
+    border-radius: 12px;
+    font-size: 18px;
+    line-height: 1.65;
+    font-style: italic;
+}
+blockquote span {
+    display: block;
+    margin-top: 6px;
+    font-style: normal;
+    font-size: 15px;
+    color: #777;
+}
+
+
+
+/* Info-box */
+.info-box {
+    padding: 16px;
+    background: #fff7f8;
+    border: 1px solid #f0d7dc;
+    border-radius: 12px;
+    font-size: 17px;
+    margin: 26px 0;
+}
+
+
+
+/* Divider */
 .divider {
-    width: 100%;
     height: 1px;
     background: #e3e3e3;
-    margin: 32px 0;
+    margin: 40px 0;
 }
 
-/* КАРУСЕЛЬ */
+
+
+/* ===== CAROUSEL ===== */
 .carousel {
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 14px;
 }
 
 .carousel-track {
@@ -72,77 +168,61 @@ p {
 
 .carousel img {
     width: 100%;
-    flex-shrink: 0;
     object-fit: cover;
+    border-radius: 12px;
     cursor: pointer;
-    border-radius: 6px;
-    transition: .25s;
 }
 
-.carousel img:hover {
-    transform: scale(1.02);
-    filter: brightness(.92);
-}
 
-/* Стрелки */
+
+/* Buttons */
 .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.45);
+    background: rgba(0,0,0,.45);
     color: white;
     border: none;
     padding: 6px 12px;
     font-size: 28px;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+.prev { left: 12px; }
+.next { right: 12px; }
 
-/* Точки */
+
+/* Dots */
 .dots {
     text-align: center;
-    margin-top: 12px;
+    margin-top: 14px;
 }
-
 .dots span {
     width: 10px;
     height: 10px;
-    background: #ccc;
-    display: inline-block;
+    background: #cfcfcf;
     border-radius: 50%;
+    display: inline-block;
     margin: 0 4px;
 }
-
 .dots .active {
     background: #d90429;
     transform: scale(1.2);
 }
 
-/* MODAL */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    justify-content: center;
-    align-items: center;
-}
 
-.modal img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-}
 
-.modal-close {
-    position: fixed;
-    top: 20px;
-    right: 24px;
-    font-size: 36px;
-    color: white;
-    cursor: pointer;
+/* ===== FOOTER ===== */
+.footer {
+    background: #f2efec;
+    padding: 28px 0;
+    border-top: 1px solid #e2dfdc;
+}
+.footer-inner {
+    max-width: 840px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 15px;
+    color: #777;
 }
